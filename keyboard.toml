@@ -1,50 +1,102 @@
 # Documentation: https://haobogu.github.io/rmk/keyboard_configuration.html
 [keyboard]
-name = "RMK Keyboard"
-product_name = "RMK Keyboard"
+name = "CalderaRMK"
+product_name = "CalderaRMK"
 vendor_id = 0x4c4b
 product_id = 0x4643
-manufacturer = "haobo"
-chip = "rp2040"
-
-[matrix]
-# Input and output pins are mandatory
-input_pins = ["PIN_6", "PIN_7", "PIN_8", "PIN_9"]
-output_pins = ["PIN_19", "PIN_20", "PIN_21"]
-# WARNING: Currently row2col/col2row is set in RMK's feature gate, configs here do nothing actually
-# row2col = true
+manufacturer = "eberlitz"
+# chip = "nrf52840"
+board = "nice!nano_v2"
 
 [layout]
-rows = 4
-cols = 3
-layers = 2
+rows = 5
+cols = 12
+layers = 3
 keymap = [
     [
-        ["A", "B", "C"],
-        ["Kc1", "Kc2", "Kc3"],
         ["LCtrl", "MO(1)", "LShift"],
-        ["OSL(1)", "LT(2, Kc9)", "LM(1, LShift | LGui)"]
+        ["OSL(1)", "LT(2, Kc9)", "LM(1, LShift | LGui)"],
+        ["TO(0)", "TT(1)", "TG(2)"],
+        ["TO(0)", "TT(1)", "TG(2)"],
+
+        ["Escape","Kc1","Kc2","Kc3","Kc4","Kc5","Kc6","Kc7","Kc8","Kc9","Kc0","Backspace"],
+        ["Tab","Q","W","E","R","T","Y","U","I","O","P","Backslash"],
+        ["CapsLock","A","S","D","F","G","H","J","K","L",";","Enter"],
+        ["LShift","Z","X","C","V","B","N","M",",",".","/","'"],
+        ["LCtrl","LAlt","LGui","Space","LAlt","LGui","Space","MO(1)","Left","Down","Up","Right"]
+
     ],
     [
-        ["_", "TT(1)", "TG(2)"],
-        ["_", "_", "_"],
-        ["_", "_", "_"],
-        ["_", "_", "_"]
+        ["TO(0)", "F1", "F2", "F3", "F4", "F5",   "F6", "F7", "F8","F9", "F10", "F11"],
+        ["_", "User0", "User1","User2", "User3", "User4", "User5", "_", "_","_", "_", "_"],
+        ["_", "_", "_","_", "_", "_",   "_", "[", "]","-", "=", "_"],
+        ["_", "_", "_","_", "_", "_",   "~", "_", "_","_", "_", "_"],
+        ["_", "_", "_","_", "_", "_",   "_", "_", "_","_", "_", "_"],
+    ],
+    [
+        ["TO(0)","_", "_","_", "_", "_",       "_", "_", "_","_", "_", "_" ],
+        ["_", "_", "_","_", "_", "_",       "_", "_", "_","_", "_", "_"],
+        ["_", "_", "_","_", "_", "_",       "_", "_", "_","_", "_", "_"],
+        ["_", "_", "_","_", "_", "_",       "_", "_", "_","_", "_", "_"],
+        ["_", "_", "_","_", "_", "_",       "_", "_", "_","_", "_", "_"],
     ],
 ]
 
-[light]
-# All light pins are high-active by default, uncomment if you want it to be low-active
-# capslock.pin = "PB2"
+[storage]
+# Storage feature is enabled by default
+# enabled = false
+
+[ble]
+enabled = true
+
+[behavior]
+tap_hold = { enable_hrm = true, prior_idle_time = "120ms", hold_timeout = "250ms", post_wait_time = "50ms"}
+
+[split]
+connection = "ble"
+
+[split.central]
+rows = 5
+cols = 6
+row_offset = 0
+col_offset = 0
+ble_addr = [0x18, 0xe2, 0x21, 0x80, 0xc0, 0xc7]
+
+[split.central.matrix]
+matrix_type = "normal"
+# WARNING: Currently row2col/col2row is set in RMK's feature gate, row2col config here is valid ONLY when you're using cloud compilation
+# Checkout documentation here: https://rmk.rs/docs/user_guide/faq.html#my-matrix-is-row2col-the-matrix-doesn-t-work
+# row2col = true
+input_pins = ["P1_13", "P1_15", "P0_02", "P0_29", "P0_31"]
+output_pins = ["P0_20", "P0_22", "P0_24", "P1_00", "P0_11", "P0_17"]
+
+
+[[split.peripheral]]
+rows = 5
+cols = 6
+row_offset = 0
+col_offset = 6
+ble_addr = [0x7e, 0xfe, 0x73, 0x9e, 0x66, 0xe3]
+
+[split.peripheral.matrix]
+matrix_type = "normal"
+input_pins = ["P1_13", "P1_15", "P0_02", "P0_29", "P0_31"]
+output_pins = ["P0_20", "P0_22", "P0_24", "P1_00", "P0_11", "P0_17"]
+
+# [matrix]
+# # Input and output pins are mandatory
+# input_pins = ["PIN_6", "PIN_7", "PIN_8", "PIN_9"]
+# output_pins = ["PIN_19", "PIN_20", "PIN_21"]
+# # WARNING: Currently row2col/col2row is set in RMK's feature gate, configs here do nothing actually
+# # row2col = true
+
+
+# [light]
+# # All light pins are high-active by default, uncomment if you want it to be low-active
+# # capslock.pin = "PB2"
 # capslock.low_active = true
 # scrolllock.pin = "PA3"
 # scrolllock.low_active = true
 # Just ignore if no light pin is used for it
 # numslock.pin = "PA5"
 # numslock.low_active = true
-
-
-
-[storage]
-# Storage feature is enabled by default
-# enabled = false
