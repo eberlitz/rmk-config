@@ -14,11 +14,6 @@ cols = 12
 layers = 3
 keymap = [
     [
-        ["LCtrl", "MO(1)", "LShift"],
-        ["OSL(1)", "LT(2, Kc9)", "LM(1, LShift | LGui)"],
-        ["TO(0)", "TT(1)", "TG(2)"],
-        ["TO(0)", "TT(1)", "TG(2)"],
-
         ["Escape","Kc1","Kc2","Kc3","Kc4","Kc5","Kc6","Kc7","Kc8","Kc9","Kc0","Backspace"],
         ["Tab","Q","W","E","R","T","Y","U","I","O","P","Backslash"],
         ["CapsLock","A","S","D","F","G","H","J","K","L",";","Enter"],
