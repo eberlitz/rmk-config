@@ -1,4 +1,4 @@
-# RMK 
+# RMK
 
 RMK is a feature-rich and easy-to-use keyboard firmware.
 
@@ -30,3 +30,23 @@ Most nice!nano compatible boards have bootloader with SoftDevice pre-flashed. Si
 ### Additional notes
 
 RMK defaults to USB-priority mode if a USB cable is connected. After flashing, remember to disconnect the USB cable, or [switch to BLE-priority mode](https://rmk.rs/docs/features/wireless.html#multiple-profile-support) by pressing User11(Switch Output) key.
+
+
+###
+
+template https://github.com/HaoboGu/rmk-template/tree/main/nrf52840_split
+
+```sh
+rustup target add thumbv7em-none-eabihf
+cargo install rmkit --force
+
+
+# Install flip-link
+cargo install --force flip-link cargo-make
+
+
+cargo update
+cargo build --release
+
+cargo make uf2 --release
+```
