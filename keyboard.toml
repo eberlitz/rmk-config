@@ -1,4 +1,8 @@
 # Documentation: https://haobogu.github.io/rmk/keyboard_configuration.html
+[rmk]
+debounce_time = 30
+
+
 [keyboard]
 name = "CalderaRMK"
 product_name = "CalderaRMK"
