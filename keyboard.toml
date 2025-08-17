@@ -1,8 +1,3 @@
-# Documentation: https://haobogu.github.io/rmk/keyboard_configuration.html
-[rmk]
-debounce_time = 30
-
-
 [keyboard]
 name = "CalderaRMK"
 product_name = "CalderaRMK"
@@ -41,10 +36,6 @@ keymap = [
     ],
 ]
 
-[storage]
-# Storage feature is enabled by default
-# enabled = false
-
 [ble]
 enabled = true
 battery_adc_pin = "vddh"
@@ -52,7 +43,7 @@ adc_divider_measured = 2000
 adc_divider_total = 2806
 
 [behavior]
-tap_hold = { enable_hrm = true, prior_idle_time = "120ms", hold_timeout = "250ms", post_wait_time = "50ms"}
+tap_hold = { enable_hrm = true}
 
 [split]
 connection = "ble"
@@ -62,8 +53,6 @@ rows = 5
 cols = 6
 row_offset = 0
 col_offset = 0
-ble_addr = [0x18, 0xe2, 0x21, 0x80, 0xc0, 0xc7]
-
 [split.central.matrix]
 matrix_type = "normal"
 # WARNING: Currently row2col/col2row is set in RMK's feature gate, row2col config here is valid ONLY when you're using cloud compilation
