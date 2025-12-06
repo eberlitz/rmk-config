@@ -1,5 +1,5 @@
 [rmk]
-debounce_time = 30
+debounce_time = 50
 
 [keyboard]
 name = "CalderaRMK"
